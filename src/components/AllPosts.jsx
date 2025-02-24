@@ -41,6 +41,7 @@ const AllPosts = () => {
                   colorPalette={"red"}
                   variant="outline"
                   size="md"
+                  disabled={isDeleting}
                 >
                   {isDeleting ? "Deleting..." : "Delete"}
                 </Button>

@@ -4,7 +4,7 @@ import { useEditPostMutation } from "../store/slices/postsApi";
 import PropTypes from "prop-types";
 
 const EditPost = ({ post, setOpen }) => {
-  const [editPost] = useEditPostMutation();
+  const [editPost, { isLoading }] = useEditPostMutation();
 
   const editPostHandler = async ({ title, body }) => {
     try {
@@ -57,8 +57,8 @@ const EditPost = ({ post, setOpen }) => {
               value={values.body}
             />
           </label>
-          <Button type="submit" disabled={isSubmitting}>
-            Submit
+          <Button type="submit" disabled={isLoading || isSubmitting}>
+            {isLoading ? "Loading..." : "Submit"}
           </Button>
         </form>
       )}
